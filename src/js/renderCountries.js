@@ -16,7 +16,7 @@ const refs = {
 };
 
 //Добаление слушателя на событие//
-refs.input.addEventListener('input', debounce(onSearchCountry, 500));
+refs.input.addEventListener('input', debounce(onSearchCountry, 700));
 refs.countriesList.addEventListener('click', addCountryOptionToInput);
 
 function onSearchCountry(e) {
@@ -33,10 +33,9 @@ function onSearchCountry(e) {
       notices.alertTooManyMatches();
     }
   });
-
   resetPage();
 }
-
+//  метод trim() видаляє всі пустоти на початку і в кінці
 function addCountryOptionToInput(e) {
   if (e.target.hasAttribute('data-action')) {
     const newQuery = e.target.textContent.trim();
@@ -49,7 +48,6 @@ function addCountryOptionToInput(e) {
 }
 
 //render//
-
 function makeCountriesList(data) {
   refs.countriesList.insertAdjacentHTML('beforeend', countryListTpl(data));
 }
