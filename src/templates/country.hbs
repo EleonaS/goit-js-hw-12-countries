@@ -19,5 +19,5 @@
       </ul>
     </li>
   </ul>
-  <img width="400" height="400" src={{flag}} alt={{name}} class='flag' />
+  <img  {{#each flags}} {{#if @first}} src='{{this}}' {{/if}} {{/each}} alt={{name}} class='flag' />
 </div>

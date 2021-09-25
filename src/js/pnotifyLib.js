@@ -32,7 +32,7 @@ const notices = {
   errorEmptyInput() {
     error({
       title: 'Error',
-      text: 'Enter country name',
+      text: 'Country was not found. Enter country name',
       stack: myStack,
       delay: 1000,
     });

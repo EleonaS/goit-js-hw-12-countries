@@ -16,48 +16,52 @@ const refs = {
 };
 
 //Добаление слушателя на событие//
-refs.input.addEventListener('input', debounce(onSearchCountry, 700));
+refs.input.addEventListener('input', debounce(onSearchCountry, 500));
 refs.countriesList.addEventListener('click', addCountryOptionToInput);
+
 
 function onSearchCountry(e) {
   newApiService.query = e.target.value;
-
   newApiService.fetchArticleCountry().then((data) => {
+    if (data.length === undefined) {
+     notices.errorEmptyInput();
+    }
     if (data.length === 1) {
       makeCountry(data);
     }
-    if (data.length > 1) {
+    if (data.length >= 1 && data.length <= 10) {
       makeCountriesList(data);
     }
     if (data.length > 10) {
       notices.alertTooManyMatches();
     }
-  });
-  resetPage();
+  }).catch(error => console.log(error));
+ resetPage();
 }
+
 //  метод trim() видаляє всі пустоти на початку і в кінці
 function addCountryOptionToInput(e) {
   if (e.target.hasAttribute('data-action')) {
     const newQuery = e.target.textContent.trim();
     newApiService.query = newQuery;
     refs.input.value = newQuery;
-    newApiService.fetchArticleCountry().then(makeCountry);
-
+    newApiService.fetchArticleCountry().then(makeCountry).catch(error => {
+      console.log(error);
+    });
     resetPage();
   }
 }
 
-//render//
+//render СПИСКА//
 function makeCountriesList(data) {
   refs.countriesList.insertAdjacentHTML('beforeend', countryListTpl(data));
 }
-
+//render СТРАН//
 function makeCountry(data) {
   refs.countryDiv.insertAdjacentHTML('beforeend', countryTpl(...data));
 }
 
-//Очистка//
-
+/////
 function resetPage() {
   refs.countriesList.innerHTML = '';
   refs.countryDiv.innerHTML = '';
