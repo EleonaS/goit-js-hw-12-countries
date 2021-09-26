@@ -42,7 +42,7 @@ function onSearchCountry(e) {
 //  метод trim() видаляє всі пустоти на початку і в кінці
 function addCountryOptionToInput(e) {
   if (e.target.hasAttribute('data-action')) {
-    const newQuery = e.target.textContent.trim();
+    const newQuery = e.target.textContent.toLowerCase().trim();
     newApiService.query = newQuery;
     refs.input.value = newQuery;
     newApiService.fetchArticleCountry().then(makeCountry).catch(error => {
