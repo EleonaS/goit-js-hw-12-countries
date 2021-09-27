@@ -26,4 +26,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{"./../images/tourist.jpg":[["tourist.02af2f14.jpg","GTsv"],"GTsv"]}],"Focm":[function(require,module,exports) {
 "use strict";require("./js/renderCountries"),require("./sass/main.scss");
 },{"./js/renderCountries":"QGfk","./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-12-countries/src.3840a0c3.js.map
+//# sourceMappingURL=/goit-js-hw-12-countries/src.10abb50d.js.map
