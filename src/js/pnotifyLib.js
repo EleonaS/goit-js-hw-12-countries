@@ -1,4 +1,5 @@
 ///////https://sciactive.com/pnotify/
+
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/Material.css';
 
@@ -27,12 +28,12 @@ const myStack = new Stack({
 //PNotify.error({
 //  title: 'Oh No!',
 //  text: 'Something terrible happened.'});
-
+//Country was not found.
 const notices = {
   errorEmptyInput() {
     error({
       title: 'Error',
-      text: 'Country was not found. Enter country name',
+      text: 'Enter country name',
       stack: myStack,
       delay: 1000,
     });
@@ -51,4 +52,3 @@ const notices = {
 
 export default notices;
 
-//Если бекенд вернул больше чем 10 стран подошедших под критерий введенный пользователем, в интерфейсе отображается нотификация о том, что необходимо сделать запрос более специфичным.

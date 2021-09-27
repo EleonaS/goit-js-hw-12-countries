@@ -7,7 +7,7 @@ export default class NewApiService {
 // не работает!!!!   https://restcountries.eu/v2 //// вчера еще работал)))
 // работает на restcountries.com   с трудом и флаги не выводит не иконками, не изображениями - только место резервирует под них
   fetchArticleCountry() {
-    return fetch(`https://restcountries.com/v2/name/${this.searchQuery}`,).then((response) => {
+    return fetch(`https://restcountries.com/v3/name/${this.searchQuery}`,).then((response) => {
       if (response.status === 200) {
         return response.json()
       }

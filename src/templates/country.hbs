@@ -1,19 +1,19 @@
 <h1 class='country-name'>
-  {{name}}
+  {{name.common}}
 </h1>
 <div class='country-characteristic'>
   <ul class='country-data-list'>
     <li class='country-data-item'>
       <b class="bold">Capital:</b> {{capital}}
     <li class='country-data-item'>
-      <b class="bold">Population:</b> {{population}}
+      <b class="bold">Population:</b> {{area}}
     </li>
     <li class='country-data-item'>
       <b class="bold">Languages:</b>
       <ul class='country-lang-list'>
         {{#each languages}}
         <li class='lang'>
-          {{name}}
+          {{this}}
         </li>
         {{/each}}
       </ul>
