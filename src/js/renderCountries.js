@@ -23,7 +23,6 @@ refs.countriesList.addEventListener('click', addCountryOptionToInput);
 function onSearchCountry(e) {
   newApiService.query = e.target.value;
   newApiService.fetchArticleCountry().then((data) => {
-    if (data.length === undefined) {
      notices.errorEmptyInput();
     }
     if (data.length === 1) {
@@ -45,7 +44,8 @@ function addCountryOptionToInput(e) {
     const newQuery = e.target.textContent.toLowerCase().trim();
     newApiService.query = newQuery;
     refs.input.value = newQuery;
-    newApiService.fetchArticleCountry().then(makeCountry).catch(error => {
+
+   newApiService.fetchArticleCountry().then(makeCountry).catch(error => {
       console.log(error);
     });
     resetPage();
