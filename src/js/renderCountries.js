@@ -23,6 +23,7 @@ refs.countriesList.addEventListener('click', addCountryOptionToInput);
 function onSearchCountry(e) {
   newApiService.query = e.target.value;
   newApiService.fetchArticleCountry().then((data) => {
+    if (data.length === undefined)  {
      notices.errorEmptyInput();
     }
     if (data.length === 1) {
